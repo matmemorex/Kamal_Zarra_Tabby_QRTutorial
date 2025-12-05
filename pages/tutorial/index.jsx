@@ -65,7 +65,7 @@ const tutorialSteps = [
                 +60
               </div>
               <div className="flex-1 px-3 py-3 border-2 border-beige-300 rounded-xl bg-gray-50 text-sm">
-                <span className="text-gray-400">12-3456789</span>
+                <span data-phone-text className="text-gray-400"></span>
               </div>
             </div>
             <button className="w-full bg-gradient-to-r from-beige-500 to-beige-700 text-white py-3 rounded-xl font-semibold text-sm">
@@ -98,13 +98,28 @@ const tutorialSteps = [
             </p>
             <p className="text-sm text-beige-700 font-semibold mt-2">012-3456789</p>
           </div>
+          
+          {/* WhatsApp Message */}
+          <div className="mb-4 bg-green-50 rounded-2xl p-4 border border-green-200">
+            <div className="flex items-start gap-2">
+              <div className="text-2xl">💬</div>
+              <div className="flex-1">
+                <p className="text-xs text-gray-500 mb-1">WhatsApp</p>
+                <p className="text-sm text-gray-700">
+                  Kod OTP anda: <span id="otpText" className="font-mono font-bold text-beige-700">------</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="flex gap-2 justify-center mb-4">
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <div
                 key={num}
-                className="w-12 h-14 border-2 border-beige-300 rounded-xl flex items-center justify-center text-xl font-bold bg-beige-50"
+                id={`d${num}`}
+                data-otp-box={num}
+                className="w-12 h-14 border-2 border-beige-300 rounded-xl flex items-center justify-center text-xl font-bold bg-beige-50 transition-all"
               >
-                {num <= 3 ? num : ''}
               </div>
             ))}
           </div>
